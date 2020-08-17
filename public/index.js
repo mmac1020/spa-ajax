@@ -12,9 +12,12 @@ button.addEventListener('click', async function() {
   let url = `/dogs/${dogId}`;
 
   // AJAX request for specific dog
-  let response = await fetch(url);
+  let response = await fetch(url, {
+    method: 'GET'
+  });
+  console.log('response', response);
   let data = await response.json();
-
+  console.log('data', data);
   // with the response, change the DOM
   content.innerHTML = `
     <h4>${data.name}</h4>
