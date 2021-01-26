@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/dogs/:id', async (req, res, next) => {
   try {
     const dog = await Dog.findByPk(req.params.id);
-    res.send(dog);
+    res.json(dog);
   } catch (error) {
     next(error);
   }
